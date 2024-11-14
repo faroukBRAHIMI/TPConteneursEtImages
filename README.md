@@ -4,6 +4,12 @@
 Pour créer le fork : https://classroom.github.com/a/bsumLYBx
 
 
+# Table of Contents
+- [Docker Versions and Information](#docker-versions-and-information)
+- [Docker Service and Socket](#docker-service-and-socket)
+
+
+
 # Docker Versions and Information
 
 running ```docker info``` gives helpful informations concerning the docker images, running containers, volumes (which are used to persist data), and overall configuration
@@ -139,5 +145,11 @@ Stopping docker.service doesnt mean necessarily that docker.socket is gonna get 
         CPU: 701us
      CGroup: /system.slice/docker.socket
 ```
+
+### Deactivate/Reactivate Docker
+
+To deactivate docker, type this command ```sudo systemctl disable docker``` . This should stop docker from starting automatically when the system starts.
+
+To reverse this, replace ```disable``` with ```enable```
 
 
