@@ -110,3 +110,34 @@ To see the docker service, run this command ```sudo systemctl list-units --type=
 
 It acts as a communication channel with the docker daemon. 
 
+## Docker users
+
+We have the ability to see the user that started docker daemon, by running this command ```ps aux | grep dockerd``` The output given should be similar to this ```root        8538  0.0  3.9 2060888 79860 ?       Ssl  09:06   0:01 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock```. In my case docker was initialized by root. 
+
+## Docker lifecycle
+
+### Stopping docker
+To stop docker run this command ```ystemctl stop docker``` . You might be asked to authenticate to complete the action. The output should be something like this.
+
+``` 
+==== AUTHENTICATION COMPLETE ===
+Warning: Stopping docker.service, but it can still be activated by:
+  docker.socket
+  ```
+
+### Socket Status after stopping docker.service
+
+Stopping docker.service doesnt mean necessarily that docker.socket is gonna get stopped. Since they work seperately from each other, the docker socket stays active and listening for new connections. But the actions received are not gonna be executed since the service is stopped. To get the socket status type ```systemctl status docker.socket``` You should get something similar to this 
+``` 
+● docker.socket - Docker Socket for the API
+     Loaded: loaded (/lib/systemd/system/docker.socket; enabled; vendor preset: enabled)
+     Active: active (listening) since Thu 2024-11-14 09:06:24 UTC; 1h 6min ago
+   Triggers: ● docker.service
+     Listen: /run/docker.sock (Stream)
+      Tasks: 0 (limit: 2219)
+     Memory: 0B
+        CPU: 701us
+     CGroup: /system.slice/docker.socket
+```
+
+
