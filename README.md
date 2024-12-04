@@ -194,6 +194,41 @@ rancher/hello-world                 This container image is no longer maintained
 ...
 ```
 
-### Where does the persisted data go ?
+### How to run an image ? 
 
-Docker have the ability to persist data from its containers (database, or other forms of data persistence) using a concept called volumes, volumes are just files that stores our persisted data, their lifetime isnt linked to the container and they can be accessed by multiple containers. you can list the volumes by running ``` docker volume ls``` the volumes themeselves can be found in ```/var/lib/docker/volumes```
+You can run an image using its name directly, if the image doesnt exist locally, docker will fetch it automatically. Run this command to run the most starred hello-world image ```docker run hello-world```. The output should look something like this : 
+```
+Hello from Docker!
+This message shows that your installation appears to be working correctly.    
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.     
+    (amd64)
+...
+```
+
+### Does docker reuse the same container each time we run the image
+
+When working with the same image, ```hello-world``` in this case. docker generates a new instance for it each time, using ```docker ps -a``` shows a new instance with its hash, a new folder with the same hash gets added to the containers folder inside ```/var/lib/docker/containers```, output should look something like this, instance hash strings might change for your case!
+```
+125e710643bceef06e374fa0d0a7dd30def9b82e2fbb0839cd1da09ea2bc91aa  663503c099740ee20a0d5765c21839a655a9271e917ad5218351acceaf399036
+218e7b3db7a5c9fd9e4f6e1eaac3479b4cac06e0364dc82e2b9d93cfef87bd6e  8aeeefd515eadeb2f4cb7c3100f8e0a0d699807882c433680ee765c5a9da03cb
+34d11b51f4258cf6dc07e861af8efda2020a740a5a030301e758535de7abe540  b11ca41f94db3bb418651859252a1c64f60d03dc5504ed71fb155d2f442be9b9
+584fd25325e3091a8f031ae753d0c4793ff9a527c93835415a34353fa8b48669
+```
+Its important to note that even though we have multiple instances of the hello-world application, but only one image was used (the prototype). running ```docker images``` should give us this : 
+```
+REPOSITORY    TAG       IMAGE ID       CREATED         SIZE  
+hello-world   latest    d2c94e258dcb   19 months ago   13.3kB
+```
+
+### Whats the hash string under IMAGE ID when listing the images
+
+Docker generates an SHA256 hash to uniquely identify an image/container/volume...etc
+
+### How can i get the running containers ?
+
+Run this command to get all running containers ```docker ps```. We can also use this command to get the number of currently running containers ```docker ps -q | wc -l```, the ```-q``` gets back only the hash strings of the containers. The output should be a number.
+
+
