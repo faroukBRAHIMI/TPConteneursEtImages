@@ -153,3 +153,15 @@ To deactivate docker, type this command ```sudo systemctl disable docker``` . Th
 To reverse this, replace ```disable``` with ```enable```
 
 
+### Create a group
+
+We can avoid using sudo each time we run docker command in terminal by creating a group and giving it the proper exec rights.
+
+we'll need to run these commands
+
+- create a group ```sudo groupadd docker```
+- ```sudo su - dockeruser```
+- add dockeruser to docker group ```sudo usermod -aG docker dockeruser```
+- reboot VM
+- test by running ```docker --version``` you should see the installed version of docker 
+
