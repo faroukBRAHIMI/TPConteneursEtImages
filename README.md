@@ -165,3 +165,19 @@ we'll need to run these commands
 - reboot VM
 - test by running ```docker --version``` you should see the installed version of docker 
 
+### Where does docker stock its data, containers and such ?
+
+Docker stocks everything it needs in ```/var/lib/docker```
+the output gives something like this :
+```
+.   buildkit    engine-id  network   plugins   swarm  volumes
+..  containers  image      overlay2  runtimes  tmp 
+```
+
+### Where are the containers stored ?
+
+In ```/var/lib/docker/containers``` for a fresh install of docker, you should find only one container for the default hello world example.
+
+### Where does the persisted data go ?
+
+Docker have the ability to persist data from its containers (database, or other forms of data persistence) using a concept called volumes, volumes are just files that stores our persisted data, their lifetime isnt linked to the container and they can be accessed by multiple containers. you can list the volumes by running ``` docker volume ls``` the volumes themeselves can be found in ```/var/lib/docker/volumes```
