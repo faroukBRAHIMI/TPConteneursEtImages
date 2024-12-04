@@ -231,4 +231,22 @@ Docker generates an SHA256 hash to uniquely identify an image/container/volume..
 
 Run this command to get all running containers ```docker ps```. We can also use this command to get the number of currently running containers ```docker ps -q | wc -l```, the ```-q``` gets back only the hash strings of the containers. The output should be a number.
 
+Note: ```docker ps``` is an alias for this command ```docker container ls```
+
+### How to get the ID of currently used image
+
+Run this command to list the images ```docker images```
+this should give you a list of existing images, IMAGE ID holds the UID of the image, output should look something like this: 
+```
+REPOSITORY    TAG       IMAGE ID       CREATED         SIZE
+hello-world   latest    d2c94e258dcb   19 months ago   13.3kB
+```
+
+### Does docker download the image each time we start a container of it ?
+
+No, docker only downloads the image the first time its used, then, it stores it locally.
+
+
+
+
 
