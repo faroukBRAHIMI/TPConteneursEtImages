@@ -178,6 +178,22 @@ the output gives something like this :
 
 In ```/var/lib/docker/containers``` for a fresh install of docker, you should find only one container for the default hello world example.
 
+### How to get existing images ?
+
+You'll need to run this command ```docker image ls``` for a fresh install you might only find the hello-world image, the command should give something like this : 
+```
+REPOSITORY    TAG       IMAGE ID       CREATED         SIZE
+hello-world   latest    d2c94e258dcb   19 months ago   13.3kB
+```
+
+We can also look for an image out of the existing images published in docker hub, for example for the default hello-world image we run ```docker search hello-world``` it should give something like this:
+```
+NAME                                DESCRIPTION                                     STARS     OFFICIAL
+hello-world                         Hello World! (an example of minimal Dockeriz…   2355      [OK]
+rancher/hello-world                 This container image is no longer maintained…   6
+...
+```
+
 ### Where does the persisted data go ?
 
 Docker have the ability to persist data from its containers (database, or other forms of data persistence) using a concept called volumes, volumes are just files that stores our persisted data, their lifetime isnt linked to the container and they can be accessed by multiple containers. you can list the volumes by running ``` docker volume ls``` the volumes themeselves can be found in ```/var/lib/docker/volumes```
