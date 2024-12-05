@@ -306,3 +306,13 @@ the noble tag against the latest, we should see that they ADD different images
 [latest tag details](https://hub.docker.com/layers/library/ubuntu/latest/images/sha256-6e75a10070b0fcb0bead763c5118a369bc7cc30dfc1b0749c491bbb21f15c3c7?context=explore) 
 | [noble tag details](https://hub.docker.com/layers/library/ubuntu/noble/images/sha256-6e75a10070b0fcb0bead763c5118a369bc7cc30dfc1b0749c491bbb21f15c3c7?context=explore)
 
+### List sha256 folder content 
+
+la commande ```sudo ls -l /var/lib/docker/image/overlay2/layerdb/sha256```
+
+```
+total 4
+drwx------ 2 root root 4096 nov.  14 09:06 ac28800ec8bb38d5c35b49d45a6ac4777544941199075dff8c4eb63e093aa81e
+```
+
+
