@@ -7,6 +7,7 @@ Pour créer le fork : https://classroom.github.com/a/bsumLYBx
 # Table of Contents
 - [Docker Versions and Information](#docker-versions-and-information)
 - [Docker Service and Socket](#docker-service-and-socket)
+- [Docker hub](#docker-hub)
 
 
 
@@ -248,5 +249,46 @@ No, docker only downloads the image the first time its used, then, it stores it 
 
 
 
+
+
+# Docker hub
+
+### What does docker contain ?
+
+Docker hub contains official images maintained by organizations (docker, ubuntu...etc). But it equally
+contains images deployed by simple users of the platform. each image is referenced
+by a tag. the image can be stared (a sort of rating). and the image's maintainer/s
+
+### How to tell an official image
+
+An official image will have a certified badge next to its name, lets take 
+ubuntu's official image for example [Ubuntu official image](https://hub.docker.com/_/ubuntu)
+
+
+### Image name strcuture explained
+
+Lets take the ubuntu official images for example, follow this [link](https://hub.docker.com/_/ubuntu)
+Inside you should see a list of available images of ubuntu, something like this 
+
+```
+20.04, focal-20241011, focal⁠
+
+22.04, jammy-20240911.1, jammy⁠
+
+24.04, noble-20241118.1, noble, latest⁠
+
+24.10, oracular-20241120, oracular, rolling⁠
+
+25.04, plucky-20241124, plucky, devel⁠
+
+<ubuntu OS version>, <specific build tag>, <release alias>
+
+```
+
+For the release tags : Focal Ubuntu 20.04 LTS | Jammy Ubuntu 22.04 LTS ...etc
+For release aliases we have : 
+- Rolling : latest non-LTS release often used in Docker for projects that need the most recent features and updates.
+- Devel : latest development build, used for testing and experimentation with the next version of Ubuntu
+- Latest : most recent LTS release, useful when you always want the most up-to-date stable version.
 
 
