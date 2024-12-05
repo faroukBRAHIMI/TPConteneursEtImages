@@ -292,3 +292,17 @@ For release aliases we have :
 - Latest : most recent LTS release, useful when you always want the most up-to-date stable version.
 
 
+### How to see the vulnerabilities of an image
+
+Docker hub platform offers the possibility to see vulnerabilities related to a specific image
+Following this link for example for [ubuntu latest image](https://hub.docker.com/layers/library/ubuntu/latest/images/sha256-6e75a10070b0fcb0bead763c5118a369bc7cc30dfc1b0749c491bbb21f15c3c7?context=explore)
+We should see a list of the vulnerabilities related to this image.
+
+### Difference between noble and latest tagged images
+
+noble is more predictable as it is less updated than latest
+if we check the details of each tag, for example if we want to compare
+the noble tag against the latest, we should see that they ADD different images
+[latest tag details](https://hub.docker.com/layers/library/ubuntu/latest/images/sha256-6e75a10070b0fcb0bead763c5118a369bc7cc30dfc1b0749c491bbb21f15c3c7?context=explore) 
+| [noble tag details](https://hub.docker.com/layers/library/ubuntu/noble/images/sha256-6e75a10070b0fcb0bead763c5118a369bc7cc30dfc1b0749c491bbb21f15c3c7?context=explore)
+
